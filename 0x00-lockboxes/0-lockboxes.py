@@ -3,8 +3,6 @@
 
 def canUnlockAll(boxes):
 
-    if boxes[0] == []:
-        return False
     unlocked_boxes = [0]
     for box in range(len(boxes)):
         for key in boxes[box]:
