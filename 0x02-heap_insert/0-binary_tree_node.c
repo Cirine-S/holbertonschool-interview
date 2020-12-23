@@ -10,5 +10,4 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
     child->right = NULL;
     child->left = NULL;
     return child;
-
 }
