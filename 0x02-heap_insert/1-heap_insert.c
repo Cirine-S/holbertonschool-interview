@@ -75,7 +75,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	if (*root == NULL)
 	{
 	*root = malloc(sizeof(heap_t));
-    if (*root == NULL)
+	if (*root == NULL)
 		return (NULL);
 	(*root)->n = value;
 	return (*root);
