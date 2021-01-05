@@ -23,11 +23,11 @@ void swapNode(heap_t **myNode)
 }
 
 /**
- * testx - find the parent node where to insert.
+ * find_available_parent - find the parent node where to insert.
  * @root: root of the tree
  * Return: Pointer to the parent node.
  */
-heap_t *find_steril_parent(heap_t **root)
+heap_t *find_available_parent(heap_t **root)
 {
 	heap_t *node = NULL;
 	heap_t *array[100];
@@ -76,7 +76,7 @@ heap_t *heap_insert(heap_t **root, int value)
 		*root = binary_tree_node(*root, value);
 		return (*root);
 	}
-	parentNode = find_steril_parent(root);
+	parentNode = find_available_parent(root);
 	newNode = binary_tree_node(parentNode, value);
 	if (!parentNode->left)
 		parentNode->left = newNode;
