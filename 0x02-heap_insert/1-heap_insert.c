@@ -33,7 +33,7 @@ heap_t *heapify(heap_t **root)
 	front = reer = 0;
 	array[reer] = *root;
 
-	while (2021)
+	while (1000)
 	{
 		node = array[front];
 		if (front == reer)
