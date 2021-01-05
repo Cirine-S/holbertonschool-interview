@@ -1,4 +1,7 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "binary_trees.h"
+
 /**
  * swapNode - swap Node.
  * @myNode: pointer to the first node of the list
@@ -15,39 +18,36 @@ void swapNode(heap_t **myNode)
 			tmp = move->parent->n;
 			move->parent->n = move->n;
 			move->n = tmp;
-			*myNode = (*myNode)->parent;
+			*myNode = move->parent;
 		}
 }
 
 /**
- * heapify - find the parent node where to insert.
+ * testx - find the parent node where to insert.
  * @root: root of the tree
  * Return: Pointer to the parent node.
  */
-heap_t *heapify(heap_t **root)
+heap_t *find_steril_parent(heap_t **root)
 {
 	heap_t *node = NULL;
 	heap_t *array[100];
-	int front, reer;
+	int front = 0;
+	int reer = 0;
 
-	front = reer = 0;
+
 	array[reer] = *root;
-
-	while (1000)
+	while (1)
 	{
 		node = array[front];
-		if (front == reer)
-			front = reer = -1;
-		else
-			front++;
+		front++;
 		if (!node->left)
 		{
-			front = reer = -1;
+			front = reer = 0;
 			return (node);
 		}
 		else if (!node->right)
 		{
-			front = reer = -1;
+			front = reer = 0;
 			return (node);
 		}
 		else
@@ -58,11 +58,10 @@ heap_t *heapify(heap_t **root)
 			array[reer] = node->right;
 		}
 	}
-	return (node);
 }
 /**
  * heap_insert - Max HEAP insertion function.
- * @root: pointer to the root node of the tree
+ * @root: pointer to the first node of the tree
  * @value: number to be inserted
  * Return: Pointer to the new created node.
  */
@@ -74,25 +73,16 @@ heap_t *heap_insert(heap_t **root, int value)
 
 	if (*root == NULL)
 	{
-	*root = malloc(sizeof(heap_t));
-	if (*root == NULL)
-		return (NULL);
-	(*root)->n = value;
-	return (*root);
+		*root = binary_tree_node(*root, value);
+		return (*root);
 	}
-
-	parentNode = heapify(root);
-
+	parentNode = find_steril_parent(root);
 	newNode = binary_tree_node(parentNode, value);
 	if (!parentNode->left)
 		parentNode->left = newNode;
 	else
 		parentNode->right = newNode;
 
-	if (newNode->n > parentNode->n)
-	{
-		swapNode(&newNode);
-	}
-
+	swapNode(&newNode);
 	return (newNode);
 }
