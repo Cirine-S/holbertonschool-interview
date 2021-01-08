@@ -8,10 +8,8 @@ def minOperations(n):
     if (n <= 1):
         return 0
     sum = 0
-    i = 2
-    while i <= n:
+    for i in range (2, n+1):
         while (n % i == 0):
             n = n / i
             sum += i
-        i += 1
     return sum
