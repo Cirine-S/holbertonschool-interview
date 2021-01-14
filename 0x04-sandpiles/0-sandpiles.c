@@ -67,7 +67,8 @@ int checkForUnstable(int arr[3][3])
  * @grid1: 1st grid
  * @grid2: 2nd grid
  * Return: void
- */sandpiles_sum(int grid1[3][3], int grid2[3][3])
+ */
+void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 
 	int x;
