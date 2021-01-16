@@ -49,14 +49,19 @@ void copjReference(int src[3][3], int dest[3][3])
 int checkForStable(int arr[3][3])
 {
 	int i, j;
+	int x = 0;
 
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
 			if (arr[i][j] <= 3)
-				return (1);
+			{
+				x += 1;
+			}
 		}
+	if (x == 9)
+		return (1);
 	}
 	return (0);
 }
@@ -83,7 +88,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 
 	printf("=\n");
 	print_grid(grid1);
-	while (checkForStable(grid1))
+	while (1)
 	{
 		copjReference(grid1, referenceGrid);
 		for (i = 0; i < 3; i++)
@@ -102,6 +107,8 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 						grid1[i][j + 1] += 1;
 				}
 			}
+		if (checkForStable(grid1))
+			break;
 		printf("=\n");
 		print_grid(grid1);
 	}
