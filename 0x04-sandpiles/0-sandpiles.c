@@ -83,7 +83,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 
 	printf("=\n");
 	print_grid(grid1);
-	while (1)
+	while (checkForStable(grid1))
 	{
 		copjReference(grid1, referenceGrid);
 		for (i = 0; i < 3; i++)
@@ -102,8 +102,6 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 						grid1[i][j + 1] += 1;
 				}
 			}
-		if (checkForStable(grid1))
-			break;
 		printf("=\n");
 		print_grid(grid1);
 	}
