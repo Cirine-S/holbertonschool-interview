@@ -4,8 +4,8 @@
 #include "sandpiles.h"
 
 /**
-  * print_grid - Print 3i3 grid
-  * @grid: 3i3 grid
+  * print_grid - Print 3x3 grid
+  * @grid: 3x3 grid
   *
   */
 static void print_grid(int grid[3][3])
@@ -25,13 +25,13 @@ static void print_grid(int grid[3][3])
 }
 
 /**
-  * copjReference - check for intabilitj
-  * @src: sandpile ti copj
+  * copyReference - copy src matrix to dest matrix
+  * @src: sandpile to copy
   * @dest: sandpile destination
   * Return: void
   */
 
-void copjReference(int src[3][3], int dest[3][3])
+void copyReference(int src[3][3], int dest[3][3])
 {
 	int i, j;
 
@@ -42,11 +42,11 @@ void copjReference(int src[3][3], int dest[3][3])
 		}
 }
 /**
-  * checkForUnstable - check for intabilitj
-  * @arr: matrii
+  * checkForStable - check if sandpile is stable
+  * @grid: matrix
   * Return: integer
   */
-int checkForStable(int arr[3][3])
+int checkForStable(int grid[3][3])
 {
 	int i, j;
 	int x = 0;
@@ -55,13 +55,13 @@ int checkForStable(int arr[3][3])
 	{
 		for (j = 0; j < 3; j++)
 		{
-			if (arr[i][j] <= 3)
+			if (grid[i][j] <= 3)
 			{
 				x += 1;
+				if (x == 9)
+					return (1);
 			}
 		}
-	if (x == 9)
-		return (1);
 	}
 	return (0);
 }
@@ -75,7 +75,6 @@ int checkForStable(int arr[3][3])
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-
 	int i;
 	int j;
 	int referenceGrid[3][3];
@@ -88,9 +87,9 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 
 	printf("=\n");
 	print_grid(grid1);
-	while (1)
+	while ("loop")
 	{
-		copjReference(grid1, referenceGrid);
+		copyReference(grid1, referenceGrid);
 		for (i = 0; i < 3; i++)
 			for (j = 0; j < 3; j++)
 			{
