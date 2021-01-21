@@ -24,7 +24,7 @@ int is_palindrome(listint_t **head)
 		len++;
 	}
 
-	while (i < len / 2)
+	while (i <= len / 2)
 	{
 		if (arr[i] != arr[len - i - 1])
 			return (0);
