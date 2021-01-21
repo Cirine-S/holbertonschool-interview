@@ -15,7 +15,7 @@ int is_palindrome(listint_t **head)
 	int arr[100];
 
 	if (!*head)
-		return 1;
+		return (1);
 
 	while (current)
 	{
@@ -24,11 +24,11 @@ int is_palindrome(listint_t **head)
 		len++;
 	}
 
-	while (i < len/2)
+	while (i < len / 2)
 	{
 		if (arr[i] != arr[len - i - 1])
-			return 0;
+			return (0);
 		i++;
 	}
-	return 1;
+	return (1);
 }
