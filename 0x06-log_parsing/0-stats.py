@@ -14,17 +14,16 @@ status = {
 }
 file_size = 0
 try:
-	for i, line in enumerate(sys.stdin, 1):
-		line_splitted = line.split()
-		if len(line_splitted) > 2:
-			file_size += int(line_splitted[-1])
-			if line_splitted[-2] in status:
-				status[line_splitted[-2]] += 1
-		if i % 10 == 0:
-			print("File size: {}".format(file_size))
-			for k in sorted(status):
-				if status[k] > 0:
-					print("{}: {}".format(k, status[k]))
+    for i, line in enumerate(sys.stdin, 1):
+        line_splitted = line.split()
+        file_size += int(line_splitted[-1])
+        if line_splitted[-2] in status:
+            status[line_splitted[-2]] += 1
+        if i % 10 == 0:
+            print("File size: {}".format(file_size))
+            for k in sorted(status):
+                if status[k] > 0:
+                    print("{}: {}".format(k, status[k]))
 
 except KeyboardInterrupt:
     pass
