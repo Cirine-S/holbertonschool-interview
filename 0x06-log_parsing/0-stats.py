@@ -22,7 +22,7 @@ try:
 				status[line_splitted[-2]] += 1
 		if i % 10 == 0:
 			print("File size: {}".format(file_size))
-			for k, v in status.items():
+			for k in sorted(status):
 				if status[k] > 0:
 					print("{}: {}".format(k, status[k]))
 
@@ -30,6 +30,6 @@ except KeyboardInterrupt:
     pass
 finally:
     print("File size: {}".format(file_size))
-    for k, v in status.items():
+    for k in sorted(status):
         if status[k] > 0:
             print("{}: {}".format(k, status[k]))
