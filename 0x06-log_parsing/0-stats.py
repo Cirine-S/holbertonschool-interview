@@ -28,6 +28,7 @@ try:
 except KeyboardInterrupt:
     pass
 finally:
-    for k, v in status.items():
-        if status[k] > 0:
-            print("{}: {}".format(k, status[k]))
+	print("File size: {}".format(file_size))
+	for k, v in status.items():
+		if status[k] > 0:
+			print("{}: {}".format(k, status[k]))
