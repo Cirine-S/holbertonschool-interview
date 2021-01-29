@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""pqrsing qlgo """
 import sys
 
 status = {
