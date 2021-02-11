@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 
 #include "palindrome.h"
 
@@ -13,16 +12,16 @@
  */
 int is_palindrome(unsigned long n)
 {
-	char buffer[50];
-	int i, len;
+    int reversedN = 0, remainder, originalN = n;
 
-	sprintf(buffer, "%lu", n);
-	len = strlen(buffer);
-
-	for (i = 0; i < len; i++)
-	{
-		if (buffer[i] != buffer[len - i - 1])
-			return (0);
-	}
-	return (1);
+    // reversed integer is stored in reversedN
+    while (n != 0) {
+        remainder = n % 10;
+        reversedN = reversedN * 10 + remainder;
+        n /= 10;
+    }
+    // palindrome if orignalN and reversedN are equal
+    if (originalN == reversedN)
+		return (1);
+	return (0);
 }
