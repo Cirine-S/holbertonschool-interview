@@ -11,15 +11,6 @@ def intList_to_binList(data):
         bytes.append('{:08b}'.format(n))
     return bytes
 
-
-def isValidByte(data):
-    """Checks if the given data is a valid utf-8 byte for a UTF8 one."""
-    for i in data:
-        if not i.startswith('10'):
-            return False
-    return True
-
-
 def validUTF8(data):
     """Check if a given data is a valid UTF-8 encoding."""
     binList = intList_to_binList(data)
@@ -47,7 +38,7 @@ def validUTF8(data):
                 i += 3
             elif binList[i][:5].startswith('11110'):
                 tmp = binList[i + 1:i + 4]
-                if not (len(tmp) == 3):
+                if (len(tmp) != 3):
                     return False
                 if not (binList[i + 1].startswith('10') and
                         binList[i + 2].startswith('10') and
