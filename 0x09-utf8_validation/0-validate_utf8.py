@@ -41,15 +41,17 @@ def validUTF8(data):
                 tmp = binList[i + 1:i + 3]
                 if (len(tmp) != 2):
                     return False
-                if not (binList[i + 1].startswith('10') & binList[i + 2].startswith('10')):
+                if not (binList[i + 1].startswith('10') &
+                        binList[i + 2].startswith('10')):
                     return False
                 i += 3
             elif binList[i].startswith('11110'):
                 tmp = binList[i + 1:i + 4]
                 if not (len(tmp) == 3):
                     return False
-                if not (binList[i + 1].startswith('10') & binList[i + 2].startswith('10') &
-				binList[i + 3].startswith('10')):
+                if not (binList[i + 1].startswith('10') and
+                        binList[i + 2].startswith('10') and
+                        binList[i + 3].startswith('10')):
                     return False
                 i += 4
             else:
