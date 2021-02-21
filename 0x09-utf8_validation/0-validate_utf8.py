@@ -10,7 +10,6 @@ def intList_to_binList(data):
     for n in data:
         num = '{:08b}'.format(n)
         bytes.append(num[-8:])
-        print(*bytes)
     return bytes
 
 
