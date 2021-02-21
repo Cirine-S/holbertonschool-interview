@@ -8,7 +8,9 @@ def intList_to_binList(data):
     """Converts an integer list to a binary list."""
     bytes = []
     for n in data:
-        bytes.append('{:08b}'.format(n))
+        num = '{:08b}'.format(n)
+        bytes.append(num[-8:])
+        print(*bytes)
     return bytes
 
 
