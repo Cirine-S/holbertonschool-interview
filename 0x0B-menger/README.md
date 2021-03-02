@@ -1,9 +1,8 @@
 # Menger Sponge
 <p align="center">
-  <img width="460" height="300" src="https://upload.wikimedia.org/wikipedia/commons/d/de/Menger_sponge_%28Level_0-3%29.jpg" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Menger_sponge_%28Level_0-3%29.jpg" />
+An illustration of the iterative construction of a Menger sponge up to M3, the third iteration
 </p>
-<figcaption align="center">An illustration of the iterative construction of a Menger sponge up to M3, the third iteration</figcaption>
-</figure>
 
 
 
