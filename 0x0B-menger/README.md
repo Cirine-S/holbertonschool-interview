@@ -12,7 +12,7 @@
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Mengersponge.gif" />
 </p>
-<figcaption align="center">Menger sponge animation through (4) recursion steps</figcaption>
+<p align="center">Menger sponge animation through (4) recursion steps</p>
 
 
 
