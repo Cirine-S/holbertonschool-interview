@@ -3,13 +3,12 @@
 
 #include "search.h"
 
+
 /**
- * linear_skip - Searches for a value in a sorted skip list of integers.
- *
- * @list: a pointer to the head of the skiplist to search in.
- * @value: the value to search for.
- *
- * Return: a pointer on the first node where value is located. NULL otherwise.
+ * linear_skip - searches for a value in a sorted skip list of integers
+ * @list: list is a pointer to the head of the skip list to search in
+ * @value: is the value to search for
+ * Return: a pointer on the 1st node where value is located or NULL on failure
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
@@ -18,10 +17,10 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	if (!list)
 		return (NULL);
 	start = list;
-	end = start->express;
+	end = list->express;
 	while (end)
 	{
-		if (value <= end->n || end->next != NULL)
+		if (value <= end->n || !end->next)
 			printf("Value checked at index [%lu] = [%d]\n",
 			       end->index, end->n);
 		if ((start->n <= value && value <= end->n) || end->next == NULL)
