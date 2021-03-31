@@ -1,18 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 #include "search.h"
 
-skiplist_t *create_skiplist(int *array, size_t size);
-void print_skiplist(const skiplist_t *list);
-void free_skiplist(skiplist_t *list);
 
 /**
- * main - Entry point
+ * linear_skip - searches for a value in a sorted skip list of integers
  * @list: list is a pointer to the head of the skip list to search in
  * @value: is the value to search for
- * Return: return a pointer on the first node where value is located or NULL on failure
+ * Return: a pointer on the 1st node where value is located or NULL on failure
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
