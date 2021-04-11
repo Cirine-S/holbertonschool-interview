@@ -11,7 +11,7 @@ request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], async (err, re
 	  await new Promise((resolve, reject) => {
 		request(characters[i], (err, response, body) => {
 			console.log(JSON.parse(body).name);
-		resolve();
+			resolve();
 	  });
 	});
   };
