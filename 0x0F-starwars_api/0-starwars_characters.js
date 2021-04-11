@@ -1,4 +1,5 @@
 #!/usr/bin/node
+/* Starwars Characters */
 const request = require('request');
 
 request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], async (err, response, body) => {
@@ -9,8 +10,8 @@ request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], async (err, re
   for (let i in characters) {
 	  await new Promise((resolve, reject) => {
 		request(characters[i], (err, response, body) => {
-			console.log(JSON.parse(body).name)
-		resolve()
+			console.log(JSON.parse(body).name);
+		resolve();
 	  })
 	})
   }
