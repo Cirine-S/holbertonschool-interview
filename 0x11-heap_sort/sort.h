@@ -1,9 +1,9 @@
-#ifndef SORT
-#define SORT
+
+#ifndef _HEADER_FILE_
+#define _HEADER_FILE_
 
 void print_array(const int *array, size_t size);
-void heapify(int arr[], int n, int i);
+
 void heap_sort(int *array, size_t size);
-void swap(int *a, int *b);
 
 #endif
