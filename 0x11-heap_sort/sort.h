@@ -1,5 +1,5 @@
-#ifndef SORT
-#define SORT
+#ifndef __SORT
+#define __SORT
 
 void print_array(const int *array, size_t size);
 void heap_sort(int *array, size_t size);
