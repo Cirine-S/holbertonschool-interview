@@ -52,6 +52,7 @@ int binary_search(int *array, int l, int r, int value)
 	return (-1);
 
 }
+
 /**
  * advanced_binary -  searches for a value in a sorted array of integers
  * @array: is a pointer to the first element of the array to search in
