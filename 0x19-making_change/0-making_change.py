@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+"""
+make change module
+"""
+import sys
+
+def makeChange(coins, total):
+    """[determine the fewest number of coins needed to meet a given amount total]
+
+    Args:
+        coins (list of integers): is a list of the values of the coins in your possession
+        total (integer): total required amount
+
+    Returns:
+        [integer]: the fewest number of coins needed to meet that given amount total.
+    """
+    n = len(coins)
+     
+    # Initialize Result
+    ans = []
+ 
+    # Traverse through all denomination
+    i = n - 1
+    while(i >= 0):
+         
+        # Find denominations
+        while (total >= coins[i]):
+            total -= coins[i]
+            ans.append(coins[i])
+ 
+        i -= 1
+
+    if (total is not 0):
+        return -1
+
+    return len(ans)
