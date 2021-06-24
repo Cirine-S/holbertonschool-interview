@@ -16,7 +16,8 @@ def makeChange(coins, total):
         [integer]: the fewest number of coins needed to meet that given amount
         total.
     """
-
+    if (total <= 0):
+        return 0
 
     n = len(coins)
 
@@ -36,9 +37,6 @@ def makeChange(coins, total):
             ans.append(coins[i])
 
         i -= 1
-    
-    for i in range(len(ans)):
-        print(ans[i], end = " ")
 
     if (total is not 0):
         return -1
