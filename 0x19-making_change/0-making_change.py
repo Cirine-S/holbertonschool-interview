@@ -17,8 +17,7 @@ def makeChange(coins, total):
         total.
     """
 
-    if (total <= 0):
-        return 0
+
     n = len(coins)
 
     # Initialize Result
