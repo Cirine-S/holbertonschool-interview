@@ -1,6 +1,7 @@
 #include "list.h"
 /**
- * add_node_end - Add a new_node node to the end of a doubly circular linked list
+ * add_node_end - Add a new_node node to the end of
+ * a doubly circular linked list
  * @list: the list to modify
  * @str: the string to copy into the new_node node
  * Return: Address of the new_node node, or NULL on failure
@@ -10,7 +11,7 @@ List *add_node_end(List **list, char *str)
 	List *new_node, *last;
 
 	if (!list || !str)
-		return NULL;
+		return (NULL);
 
 	new_node = malloc(sizeof(List));
 	if (!new_node)
