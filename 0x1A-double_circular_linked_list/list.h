@@ -1,11 +1,11 @@
-#ifndef __LIST__
-#define __LIST__
+#ifndef LIST
+#define LIST
 
+/* libraries */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 /**
  * struct List - doubly linked list
  * @str: string - (malloc'ed string)
