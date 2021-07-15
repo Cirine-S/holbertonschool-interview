@@ -5,6 +5,14 @@ island perimeter module
 
 
 def island_perimeter(grid):
+    """returns the perimeter of the island described in grid
+
+    Args:
+        grid ([matrix of 0 and 1s]): representing water and land
+
+    Returns:
+        [integer]: perimeter of the found island
+    """
     island_per = 0
     for i in range(len(grid)):
         for j in range(len(grid[0])):
