@@ -23,7 +23,7 @@ def island_perimeter(grid):
                 below = grid[i + 1][j]
                 if (left + right + above + below == 2):
                     island_per += 2
-                else:
+                if (left + right + above + below == 1):
                     island_per += 3
 
     return island_per
