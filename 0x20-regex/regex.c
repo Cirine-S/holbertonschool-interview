@@ -12,48 +12,25 @@
  */
 int regex_match(char const *str, char const *pattern)
 {
-	int i = 0, j = 0;
-	(void)pattern;
-	for (int i = 0; str[i]; i++)
-	{
-		if (str[i] == '.' || str[i] == '*')
-			return (0);
-	}
-
-	i = 0;
-	while (str[i] && pattern[j])
-	{
-		if (pattern[j] == '.' && pattern[j + 1] == '*' && !pattern[j + 2])
-		{
-			printf("here");
-			return (1);
-		}
-		else if (str[i] == pattern[j] || pattern[i] == '.')
-		{
-			i++;
-			j++;
-		}
-		else if (pattern[j] == '*' && str[i - 1] == pattern[j - 1])
-		{
-				while (str[i] == str[i - 1])
-				{
-				i++;
-			}
-		}
-		else if (str[i] != pattern[j])
-		{
-			if (pattern[j + 1] == '*')
-			{
-				j += 2;
-				printf("%c, %c ", str[i], pattern[j]);
-			}
-			else
-			{
-				return (0);
-			}
-		}
-	}
-	if (str[i] == '\0')
-		return (1);
-	return (0);
+if (!str || !pattern)
+return (0);
+if (*str == '\0' && *pattern == '\0')
+return (1);
+if (*str == *pattern || (*pattern == '.' && *(pattern + 1) != '*'))
+return (regex_match(++str, ++pattern));
+if (*str != *pattern && (*pattern != '.' && *(pattern + 1) == '*'))
+return (regex_match(str, pattern + 2));
+if (*pattern == '.' && *(pattern + 1) == '*')
+{
+if (!pattern[2])
+return (1);
+return (regex_match(str, pattern + 2) || regex_match(str + 1, pattern));
+}
+if (*pattern == '*')
+{
+if (*(pattern - 1) == *str)
+return (regex_match(str + 1, pattern));
+return (regex_match(str, pattern + 1));
+}
+return (0);
 }
