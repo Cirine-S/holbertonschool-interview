@@ -43,11 +43,11 @@ int regex_match(char const *str, char const *pattern)
 			}
 			else
 			{
-				return 0;
+				return (0);
 			}
 		}
 	}
 	if (str[i] == '\0')
-		return 1;
-	return 0;
+		return (1);
+	return (0);
 }
