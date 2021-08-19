@@ -27,9 +27,11 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 	idx_array = malloc(str_len * sizeof(int));
 	if (!idx_array)
 		return (NULL);
+
 	match = malloc(nb_words * sizeof(int));
 	if (!match)
 		return (NULL);
+
 	for (i = count = 0; i <= str_len - nb_words * word_len; i++)
 	{
 		memset(match, 0, nb_words * sizeof(int));
