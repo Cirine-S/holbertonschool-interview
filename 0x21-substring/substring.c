@@ -51,6 +51,7 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 		if (j == nb_words)
 			*(idx_array + count) = i, count += 1;
 	}
+
 	free(match);
 	*n = count;
 
