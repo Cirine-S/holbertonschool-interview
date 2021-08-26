@@ -1,52 +1,36 @@
 #!/usr/bin/python3
-
-
-def isprime(j):
-    """[checks if a number is a prime one]
-
-    Args:
-        j ([int]): [number to check]
-
-    Returns:
-        [boolean]: [true if prime, else false]
-    """
-    for i in range(2, j):
-        if j % i == 0:
-            return False
-    return True
+"""[Prime Game]
+"""
 
 
 def isWinner(x, nums):
     """[Prime Game]
-
     Args:
         x ([int]): [number of rounds]
         nums ([list]): [array of n]
-
     Returns:
         [string]: [name of the winner]
     """
-    ben = 0
-    maria = 0
-    for n in nums:
-        if n == 1:
-            ben += 1
-            print("Ben")
-        else:
-            count = 0
-            for i in range(2, n + 1):
-                if isprime(i):
-                    print(i)
-                    count += 1
-            if (count % 2 == 0):
-                print("Ben")
-                ben += 1
-            else:
-                maria += 1
-                print("Maria")
-    if (ben > maria):
-        return "Ben"
-    elif (ben < maria):
-        return "Maria"
-    else:
+    if not nums or x < 1:
         return None
+    n = max(nums)
+    arr = [True for _ in range(max(n + 1, 2))]
+    for i in range(2, int(pow(n, 0.5)) + 1):
+        if not arr[i]:
+            continue
+        for j in range(i * i, n + 1, i):
+            arr[j] = False
+    arr[0] = arr[1] = False
+    counter = 0
+    for i in range(len(arr)):
+        if arr[i]:
+            counter += 1
+        arr[i] = counter
+    player = 0
+    for n in nums:
+        player += arr[n] % 2 == 1
+    if player * 2 == len(nums):
+        return None
+    if player * 2 <= len(nums):
+        return "Ben"
+    return "Maria"
