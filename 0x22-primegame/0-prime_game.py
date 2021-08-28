@@ -30,6 +30,8 @@ def isWinner(x, nums):
     """
     ben = 0
     maria = 0
+    if x <= 0:
+        return None
     for n in nums:
         if n == 1:
             ben += 1
