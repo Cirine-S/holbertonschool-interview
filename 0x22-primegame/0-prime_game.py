@@ -1,52 +1,33 @@
 #!/usr/bin/python3
-"""[Prime Game]
-"""
+"""0. Prime Game """
 
 
-def isprime(j):
-    """[checks if a number is a prime one]
-
-    Args:
-        j ([int]): [number to check]
-
-    Returns:
-        [boolean]: [true if prime, else false]
-    """
-    for i in range(2, j):
-        if j % i == 0:
-            return False
-    return True
+def is_prime(a):
+    return all(a % i for i in range(2, a))
 
 
 def isWinner(x, nums):
-    """[Prime Game]
-
-    Args:
-        x ([int]): [number of rounds]
-        nums ([list]): [array of n]
-
-    Returns:
-        [string]: [name of the winner]
-    """
-    ben = 0
-    maria = 0
-    if x <= 0:
+    """function that determine who the winner of each game"""
+    if x < 1 or not nums or nums == []:
         return None
-    for n in nums:
-        if n == 1:
-            ben += 1
+    stop = min(x, len(nums))
+    winner = {'Maria': 0, 'Ben': 0}
+
+    for idx, i in enumerate(nums):
+        w = 'Maria'
+        if i == 1:
+            w = 'Ben'
         else:
-            count = 0
-            for i in range(2, n + 1):
-                if isprime(i):
-                    count += 1
-            if (count % 2 == 0):
-                ben += 1
-            else:
-                maria += 1
-    if (ben > maria):
-        return "Ben"
-    elif (ben < maria):
-        return "Maria"
-    else:
+            for j in range(3, i + 1):
+                if is_prime(j):
+                    w = 'Maria' if w == 'Ben' else 'Ben'
+        winner[w] += 1
+        if idx == stop:
+            break
+
+    if winner['Ben'] == winner['Maria']:
+        return None
+    try:
+        return max(winner, key=winner.get)
+    except Exception:
         return None
