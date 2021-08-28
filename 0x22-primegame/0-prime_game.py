@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""[Prime Game]
+"""
 
 
 def isprime(j):
